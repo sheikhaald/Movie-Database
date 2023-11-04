@@ -8,7 +8,7 @@ const {
   getMovie,
 } = require("./movie.controllers");
 
-router.post("/", upload.single("image"), createMovies);
+router.post("/", upload.single("picture"), createMovies);
 
 router.get("/", getMovie);
 router.post("/", createMovies);

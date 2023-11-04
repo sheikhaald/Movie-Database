@@ -3,6 +3,9 @@ const movies = require("../../models/movies");
 
 exports.createMovies = async (req, res, next) => {
   try {
+    if (req.file) {
+      req.body.picture = req.file.path.replace("\\", "/");
+    }
     const newMovie = await movies.create(req.body);
     res.status(201).json(newMovie);
   } catch (error) {
